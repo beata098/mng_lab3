@@ -1,0 +1,229 @@
+// class version 61.0 (61) //informacja o wersji klasy: 61.0 (61)
+// access flags 0x21 //Flaga dostępu: 0x21 (publiczna klasa)
+public class BubbleSort {
+
+  // compiled from: BubbleSort.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup //Deklaracja publicznej, statycznej i finalnej klasy wewnętrznej java/lang/invoke/MethodHandles$Lookup
+
+  // access flags 0x1
+  public <init>()V //Ta linia deklaruje konstruktor, który jest publiczny, nie zwraca żadnej wartości i nie przyjmuje żadnych argumentów
+   L0 //oznacza początek bloku kodu, który jest używany później do odwoływania się do niego
+    LINENUMBER 1 L0 //linia pomocnicza zawierająca numer linii kodu źródłowego (1), do której odnosi się blok kodu z etykietą L0
+    ALOAD 0 //wczytuje referencję do obiektu, który został utworzony przez ten konstruktor, referencja umieszczano zostanie na pozycji 0 na stosie
+    INVOKESPECIAL java/lang/Object.<init> ()V //wywołuje konstruktor klasy Object, która jest klasą nadrzędną dla każdej klasy w Javie. Metoda INVOKESPECIAL jest używana, ponieważ konstruktor klasy Object jest zadeklarowany jako specjalny (special) i nie można go wywołać z użyciem innych instrukcji wywołania metod
+    RETURN // zwraca wartość z metody (w tym przypadku nie ma wartości do zwrócenia) i kończy wykonywanie konstruktora
+   L1 //oznaczanie początku kolejnego bloku kodu
+    LOCALVARIABLE this LBubbleSort; L0 L1 0 // deklaruje zmienną lokalną "this" typu BubbleSort (czyli klasy, do której należy ten konstruktor). Zmienna ta jest widoczna tylko wewnątrz metody. Argumenty L0 i L1 definiują bloki kodu, w których ta zmienna jest zadeklarowana i używana, a 0 oznacza, że jest to pierwsza zmienna lokalna
+    MAXSTACK = 1 // maksymalna liczba elementów, które mogą być przechowywane na stosie w trakcie wykonywania metody
+    MAXLOCALS = 1 //maksymalna liczba zmiennych lokalnych, które mogą być zadeklarowane i użyte w trakcie wykonywania metody
+
+  // access flags 0x9 //informacja o dostępnych flagach. Wartość 0x9 wskazuje na dostęp publiczny i statyczną metodę
+  public static bubbleSort([I)V //deklaracja metody bubbleSort, która jest publiczna, statyczna i przyjmuje argument w postaci tablicy całkowitoliczbowej (int[]) oraz nie zwraca żadnej wartości (void).
+   L0
+    LINENUMBER 3 //informacja o numerze linii kodu źródłowego, którego odpowiada ta linia bytecode. W tym przypadku jest to linia 3
+    ALOAD 0 //wczytuje referencję do tablicy przekazanej jako pierwszy argument funkcji na stos
+    ARRAYLENGTH //pobiera długość tablicy z wierzchołka stosu
+    ISTORE 1 //Zapisuje wartość ze stosu do lokalnego indeksu 1 (zmienna pomocnicza przechowująca długość tablicy)
+   L1
+    LINENUMBER 4 L1
+    ICONST_0 //umieszcza stałą o wartości 0 na stosie
+    ISTORE 2
+   L2
+    LINENUMBER 5 L2
+    ICONST_0
+    ISTORE 3
+   L3
+   FRAME APPEND [I I I] //informacja o stanie stosu i zmiennych lokalnych na tym etapie. Wskazuje, że na stosie znajdują się trzy wartości typu int, a w zmiennych lokalnych są trzy zmienne typu int
+    ILOAD 3 //wczytuje wartość ze zmiennej lokalnej o indeksie 3 (wartość indeksu zewnętrznego pętli) na stos
+    ILOAD 1
+    IF_ICMPGE L4 //porównuje wartości na szczycie stosu i wykonuje skok do L4, jeśli warunek jest spełniony
+   L5
+    LINENUMBER 6 L5
+    ICONST_1
+    ISTORE 4
+   L6
+   FRAME APPEND [I]
+    ILOAD 4
+    ILOAD 1
+    ILOAD 3
+    ISUB //Odejmuje dwie wartości ze stosu i umieszcza wynik na stosie
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 7 L8
+    ALOAD 0
+    ILOAD 4
+    ICONST_1
+    ISUB
+    IALOAD //Wczytuje wartość z tablicy o indeksie ze stosu i umieszcza ją na stosie
+    ALOAD 0
+    ILOAD 4
+    IALOAD
+    IF_ICMPLE L9
+   L10
+    LINENUMBER 8 L10
+    ALOAD 0
+    ILOAD 4
+    ICONST_1
+    ISUB
+    IALOAD
+    ISTORE 2
+   L11
+    LINENUMBER 9 L11
+    ALOAD 0
+    ILOAD 4
+    ICONST_1
+    ISUB
+    ALOAD 0
+    ILOAD 4
+    IALOAD
+    IASTORE
+   L12
+    LINENUMBER 10 L12
+    ALOAD 0
+    ILOAD 4
+    ILOAD 2
+    IASTORE //Zapisuje wartość ze stosu (wartość elementu tablicy) do tablicy o indeksie ze stosu
+   L9
+    LINENUMBER 6 L9
+   FRAME SAME //Informacja o stanie stosu i zmiennych lokalnych na tym etapie. Wskazuje, że stan stosu i zmienne lokalne są takie same jak w poprzednim stanie
+    IINC 4 1 //Inkrementuje o 1 wartość zmiennej lokalnej o indeksie 4
+    GOTO L6 //Wykonuje skok do etykiety L6
+   L7
+    LINENUMBER 5 L7
+   FRAME CHOP 1 //informacja o zmianie stanu stosu i zmiennych lokalnych. Wskazuje, że jedna wartość została usunięta ze stosu
+    IINC 3 1
+    GOTO L3
+   L4
+    LINENUMBER 14 L4
+   FRAME CHOP 1
+    RETURN //Zakończenie metody
+   L13
+    LOCALVARIABLE j I L6 L7 4 //informacja o zmiennej lokalnej o nazwie "j", typie "int" oraz jej zakresie (od etykiety L6 do L7) i indeksie 4
+    LOCALVARIABLE i I L3 L4 3 //informacja o zmiennej lokalnej o nazwie "i", typie "int" oraz jej zakresie (od etykiety L3 do L4) i indeksie 3
+    LOCALVARIABLE arr [I L0 L13 0 //informacja o zmiennej lokalnej o nazwie "arr", typie "int[]" (tablica liczb całkowitych) oraz jej zakresie (od etykiety L0 do L13) i indeksie 0
+    LOCALVARIABLE n I L1 L13 1 //informacja o zmiennej lokalnej o nazwie "n", typie "int" oraz jej zakresie (od etykiety L1 do L13) i indeksie 1nformacja o zmiennej lokalnej o nazwie "n", typie "int" oraz jej zakresie (od etykiety L1 do L13) i indeksie 1
+    LOCALVARIABLE temp I L2 L13 2 //Informacja o zmiennej lokalnej o nazwie "temp", typie "int" oraz jej zakresie (od etykiety L2 do L13) i indeksie 2
+    MAXSTACK = 4 //informacja o maksymalnej głębokości stosu dla tej metody
+    MAXLOCALS = 5 //informacja o maksymalnej liczbie zmiennych lokalnych dla tej metody
+
+  // access flags 0x9
+  public static main([Ljava/lang/String;)V
+   L0
+    LINENUMBER 17 L0
+    BIPUSH 7 //Wczytuje na stos wartość liczbową 7
+    NEWARRAY T_INT //Tworzy nową tablicę o typie "int" (liczby całkowite) na podstawie wartości na szczycie stosu (w tym przypadku 7)
+    DUP //Duplikuje wartość na szczycie stosu
+    ICONST_0
+    ICONST_3
+    IASTORE
+    DUP
+    ICONST_1
+    BIPUSH 60
+    IASTORE
+    DUP
+    ICONST_2
+    BIPUSH 35
+    IASTORE
+    DUP
+    ICONST_3
+    ICONST_2
+    IASTORE
+    DUP
+    ICONST_4
+    BIPUSH 45
+    IASTORE
+    DUP
+    ICONST_5
+    SIPUSH 320
+    IASTORE
+    DUP
+    BIPUSH 6
+    ICONST_5
+    IASTORE
+    ASTORE 1
+   L1
+    LINENUMBER 18 L1
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream; //Wczytuje referencję do obiektu out klasy PrintStream z klasy System
+    LDC "Przed sortowaniem" //Wczytuje stałą typu String na stos (w tym przypadku "Przed sortowaniem")
+    INVOKEVIRTUAL java/io/PrintStream.println (Ljava/lang/String;)V //Wywołuje metodę println na obiekcie out klasy PrintStream, przekazując na stos argument typu String
+   L2
+    LINENUMBER 19 L2
+    ICONST_0
+    ISTORE 2
+   L3
+   FRAME APPEND [[I I]
+    ILOAD 2
+    ALOAD 1
+    ARRAYLENGTH //Wykonuje operację na referencji do tablicy na szczycie stosu, zwracając jej długość (ilość elementów), i wczytuje tę wartość na stos.
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 20 L5
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 1
+    ILOAD 2
+    IALOAD
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001 "
+    ]//Wywołuje dynamicznie wygenerowaną metodę makeConcatWithConstants, która tworzy łańcuch znaków na podstawie argumentów na stosie
+    INVOKEVIRTUAL java/io/PrintStream.print (Ljava/lang/String;)V
+   L6
+    LINENUMBER 19 L6
+    IINC 2 1
+    GOTO L3
+   L4
+    LINENUMBER 22 L4
+   FRAME CHOP 1
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    INVOKEVIRTUAL java/io/PrintStream.println ()V
+   L7
+    LINENUMBER 23 L7
+    ALOAD 1
+    INVOKESTATIC BubbleSort.bubbleSort ([I)V //Wywołuje statyczną metodę bubbleSort klasy BubbleSort, przekazując referencję do tablicy jako argument
+   L8
+    LINENUMBER 24 L8
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    LDC "Po sortowaniu"
+    INVOKEVIRTUAL java/io/PrintStream.println (Ljava/lang/String;)V
+   L9
+    LINENUMBER 25 L9
+    ICONST_0
+    ISTORE 2
+   L10
+   FRAME APPEND [I]
+    ILOAD 2
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L11
+   L12
+    LINENUMBER 26 L12
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 1
+    ILOAD 2
+    IALOAD
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001 "
+    ]
+    INVOKEVIRTUAL java/io/PrintStream.print (Ljava/lang/String;)V
+   L13
+    LINENUMBER 25 L13
+    IINC 2 1
+    GOTO L10
+   L11
+    LINENUMBER 28 L11
+   FRAME CHOP 1
+    RETURN
+   L14
+    LOCALVARIABLE i I L3 L4 2
+    LOCALVARIABLE i I L10 L11 2
+    LOCALVARIABLE args [Ljava/lang/String; L0 L14 0
+    LOCALVARIABLE arr [I L1 L14 1
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}

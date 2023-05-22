@@ -1,0 +1,321 @@
+Różnice w ByteCode'ach:
+1. Wersja klasy: Bytecode Kotlin ma wersję klasy 52.0, podczas gdy Bytecode Java ma wersję 61.0. Różnica w wersjach może oznaczać różnice w używanych funkcjonalnościach i kompatybilności z różnymi wersjami JVM.
+2. Metadane: W bytecode Kotlin istnieje adnotacja @Lkotlin/Metadata, która zawiera metadane dotyczące klasy. W przypadku bytecode'u Java takie metadane nie występują.
+3. Adnotacje: W bytecode Kotlin występują adnotacje takie jak @Lorg/jetbrains/annotations/NotNull. Adnotacje te mogą mieć wpływ na sposób działania kodu i są używane do weryfikacji poprawności argumentów.
+4. W Javie, metody bubbleSort i main są oznaczone jako public static, natomiast w Kotlinie, są oznaczone jako public final
+5. Wywołanie metody bubbleSort: W Javie, metoda bubbleSort jest wywoływana statycznie, natomiast w Kotlinie, jest wywoływana na instancji BubbleSort2 za pomocą GETSTATIC BubbleSort2.INSTANCE
+6. Importy: W Javie widzimy importy klas z pakietu java.lang.invoke, takich jak java.lang.invoke.MethodHandles$Lookup, podczas gdy w Kotlinie nie ma potrzeby takiego importu, ponieważ Kotlin automatycznie importuje podstawowe klasy i pakiety
+7. Konstruktory: W Javie konstruktor jest publiczny oraz wywołuje konstruktor klasy nadrzędnej java/lang/Object. W Kotlinie konstruktor jest prywatny oraz również wywołuje konstruktor klasy nadrzędnej java/lang/Object
+8. Klasa: BubbleSort jest zwykłą klasą Java, podczas gdy BubbleSort2 jest końcową klasą Kotlin (final class), oznacza to, że ta klasa nie może być dziedziczona przez inne klasy
+
+// class version 52.0 (52) //Wersja klasy zgodna ze specyfikacją Java 8 (52)
+// access flags 0x31 //Flagi dostępu do klasy: publiczna i finalna
+public final class BubbleSort2 { // Deklaracja publicznej, finalnej klasy o nazwie BubbleSort2
+
+  // compiled from: BubbleSort2.kt // Informacja, że bytecode został skompilowany z pliku źródłowego BubbleSort2.kt
+
+  @Lkotlin/Metadata;(mv={1, 5, 1}, k=1, xi=48, d1={"\u0000&\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0015\n\u0002\u0008\u0002\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\u0008\u0002\u0008\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\u0008\u0002\u00a2\u0006\u0002\u0010\u0002J\u000e\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006J\u001b\u0010\u0007\u001a\u00020\u00042\u000c\u0010\u0008\u001a\u0008\u0012\u0004\u0012\u00020\n0\u0009H\u0007\u00a2\u0006\u0002\u0010\u000b\u00a8\u0006\u000c"}, d2={"LBubbleSort2;", "", "()V", "bubbleSort", "", "arr", "", "main", "args", "", "", "([Ljava/lang/String;)V", "mng_lab3"})
+  //Adnotacja zawierająca metadane dotyczące klasy
+
+  // access flags 0x19 //Flagi dostępu do pola: publiczne i statyczne
+  public final static LBubbleSort2; INSTANCE //Deklaracja statycznego pola INSTANCE reprezentującego instancję klasy BubbleSort2
+  @Lorg/jetbrains/annotations/NotNull;() // invisible //Adnotacja oznaczająca, że pole INSTANCE nie może być null
+
+  // access flags 0x2 //Flagi dostępu do konstruktora: prywatny
+  private <init>()V //Prywatny konstruktor klasy BubbleSort2
+   L0
+    LINENUMBER 1 L0 //Informacja o numerze linii kodu źródłowego odpowiadającej tej instrukcji
+    ALOAD 0 //Załadowanie referencji this na stos
+    INVOKESPECIAL java/lang/Object.<init> ()V //Wywołanie konstruktora klasy java/lang/Object
+    RETURN //Zakończenie wykonywania konstruktora
+   L1
+    LOCALVARIABLE this LBubbleSort2; L0 L1 0 //Deklaracja lokalnej zmiennej this
+    MAXSTACK = 1 //Maksymalna głębokość stosu w bloku kodu
+    MAXLOCALS = 1 //Maksymalna liczba lokalnych zmiennych w bloku kodu
+
+  // access flags 0x11 //Flagi dostępu do metody: publiczna i finalna
+  public final bubbleSort([I)V
+    // annotable parameter count: 1 (invisible) //Informacja, że metoda ma jedno adnotowalne parametry
+    @Lorg/jetbrains/annotations/NotNull;() // invisible, parameter 0
+   L0
+    ALOAD 1
+    LDC "arr"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkNotNullParameter (Ljava/lang/Object;Ljava/lang/String;)V  //Wywołanie statycznej metody checkNotNullParameter z klasy kotlin/jvm/internal/Intrinsics
+   L1
+    LINENUMBER 3 L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 2
+   L2
+    LINENUMBER 4 L2
+    ICONST_0
+    ISTORE 3
+   L3
+    LINENUMBER 5 L3
+    ICONST_0
+    ISTORE 4
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPGE L4
+   L5
+   FRAME APPEND [I I I]
+    ILOAD 4
+    ISTORE 5
+   L6
+    IINC 4 1
+   L7
+    LINENUMBER 6 L7
+    ICONST_1
+    ISTORE 6
+    ILOAD 2
+    ILOAD 5
+    ISUB
+    ISTORE 7
+    ILOAD 6
+    ILOAD 7
+    IF_ICMPGE L8
+   L9
+   FRAME APPEND [I I I]
+    ILOAD 6
+    ISTORE 8
+   L10
+    IINC 6 1
+   L11
+    LINENUMBER 7 L11
+    ALOAD 1
+    ILOAD 8
+    ICONST_1
+    ISUB
+    IALOAD
+    ALOAD 1
+    ILOAD 8
+    IALOAD
+    IF_ICMPLE L12
+   L13
+    LINENUMBER 8 L13
+    ALOAD 1
+    ILOAD 8
+    ICONST_1
+    ISUB
+    IALOAD
+    ISTORE 3
+   L14
+    LINENUMBER 9 L14
+    ALOAD 1
+    ILOAD 8
+    ICONST_1
+    ISUB
+    ALOAD 1
+    ILOAD 8
+    IALOAD
+    IASTORE
+   L15
+    LINENUMBER 10 L15
+    ALOAD 1
+    ILOAD 8
+    ILOAD 3
+    IASTORE
+   L12
+    LINENUMBER 6 L12
+   FRAME APPEND [I]
+    ILOAD 6
+    ILOAD 7
+    IF_ICMPLT L9
+   L8
+    LINENUMBER 5 L8
+   FRAME CHOP 1
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPLT L5
+   L4
+    LINENUMBER 14 L4
+   FRAME CHOP 3
+    RETURN
+   L16
+    LOCALVARIABLE j I L10 L8 8
+    LOCALVARIABLE i I L6 L4 5
+    LOCALVARIABLE n I L2 L16 2
+    LOCALVARIABLE temp I L3 L16 3
+    LOCALVARIABLE this LBubbleSort2; L0 L16 0
+    LOCALVARIABLE arr [I L0 L16 1
+    MAXSTACK = 4
+    MAXLOCALS = 9
+
+  // access flags 0x19
+  public final static main([Ljava/lang/String;)V
+  @Lkotlin/jvm/JvmStatic;()
+    // annotable parameter count: 1 (invisible)
+    @Lorg/jetbrains/annotations/NotNull;() // invisible, parameter 0
+   L0
+    ALOAD 0
+    LDC "args"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkNotNullParameter (Ljava/lang/Object;Ljava/lang/String;)V
+   L1
+    LINENUMBER 18 L1
+    BIPUSH 7
+    NEWARRAY T_INT
+    ASTORE 2
+    ALOAD 2
+    ICONST_0
+    ICONST_3
+    IASTORE
+    ALOAD 2
+    ICONST_1
+    BIPUSH 60
+    IASTORE
+    ALOAD 2
+    ICONST_2
+    BIPUSH 35
+    IASTORE
+    ALOAD 2
+    ICONST_3
+    ICONST_2
+    IASTORE
+    ALOAD 2
+    ICONST_4
+    BIPUSH 45
+    IASTORE
+    ALOAD 2
+    ICONST_5
+    SIPUSH 320
+    IASTORE
+    ALOAD 2
+    BIPUSH 6
+    ICONST_5
+    IASTORE
+    ALOAD 2
+    ASTORE 1
+   L2
+    LINENUMBER 19 L2
+    LDC "Kotlin: Przed sortowaniem"
+    ASTORE 2
+    ICONST_0
+    ISTORE 3
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 2
+    INVOKEVIRTUAL java/io/PrintStream.println (Ljava/lang/Object;)V
+   L3
+    LINENUMBER 20 L3
+    ICONST_0
+    ISTORE 2
+    ALOAD 1
+    ARRAYLENGTH
+    ICONST_M1
+    IADD
+    ISTORE 3
+    ILOAD 2
+    ILOAD 3
+    IF_ICMPGT L4
+   L5
+   FRAME APPEND [[I I I]
+    ILOAD 2
+    ISTORE 4
+   L6
+    IINC 2 1
+   L7
+    LINENUMBER 21 L7
+    NEW java/lang/StringBuilder
+    DUP
+    INVOKESPECIAL java/lang/StringBuilder.<init> ()V
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    INVOKEVIRTUAL java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;
+    BIPUSH 32
+    INVOKEVIRTUAL java/lang/StringBuilder.append (C)Ljava/lang/StringBuilder;
+    INVOKEVIRTUAL java/lang/StringBuilder.toString ()Ljava/lang/String;
+    ASTORE 5
+    ICONST_0
+    ISTORE 6
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 5
+    INVOKEVIRTUAL java/io/PrintStream.print (Ljava/lang/Object;)V
+   L8
+    LINENUMBER 20 L8
+    ILOAD 2
+    ILOAD 3
+    IF_ICMPLE L5
+   L4
+    LINENUMBER 23 L4
+   FRAME SAME
+    ICONST_0
+    ISTORE 2
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    INVOKEVIRTUAL java/io/PrintStream.println ()V
+   L9
+    LINENUMBER 24 L9
+    GETSTATIC BubbleSort2.INSTANCE : LBubbleSort2;
+    ALOAD 1
+    INVOKEVIRTUAL BubbleSort2.bubbleSort ([I)V
+   L10
+    LINENUMBER 25 L10
+    LDC "Kotlin: Po sortowaniu"
+    ASTORE 2
+    ICONST_0
+    ISTORE 3
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 2
+    INVOKEVIRTUAL java/io/PrintStream.println (Ljava/lang/Object;)V
+   L11
+    LINENUMBER 26 L11
+    ICONST_0
+    ISTORE 2
+    ALOAD 1
+    ARRAYLENGTH
+    ICONST_M1
+    IADD
+    ISTORE 3
+    ILOAD 2
+    ILOAD 3
+    IF_ICMPGT L12
+   L13
+   FRAME SAME
+    ILOAD 2
+    ISTORE 4
+   L14
+    IINC 2 1
+   L15
+    LINENUMBER 27 L15
+    NEW java/lang/StringBuilder
+    DUP
+    INVOKESPECIAL java/lang/StringBuilder.<init> ()V
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    INVOKEVIRTUAL java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;
+    BIPUSH 32
+    INVOKEVIRTUAL java/lang/StringBuilder.append (C)Ljava/lang/StringBuilder;
+    INVOKEVIRTUAL java/lang/StringBuilder.toString ()Ljava/lang/String;
+    ASTORE 5
+    ICONST_0
+    ISTORE 6
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 5
+    INVOKEVIRTUAL java/io/PrintStream.print (Ljava/lang/Object;)V
+   L16
+    LINENUMBER 26 L16
+    ILOAD 2
+    ILOAD 3
+    IF_ICMPLE L13
+   L12
+    LINENUMBER 29 L12
+   FRAME SAME
+    RETURN
+   L17
+    LOCALVARIABLE i I L6 L4 4
+    LOCALVARIABLE i I L14 L12 4
+    LOCALVARIABLE arr [I L2 L17 1
+    LOCALVARIABLE args [Ljava/lang/String; L0 L17 0
+    MAXSTACK = 3
+    MAXLOCALS = 7
+
+  // access flags 0x8
+  static <clinit>()V
+    NEW BubbleSort2
+    DUP
+    INVOKESPECIAL BubbleSort2.<init> ()V
+    PUTSTATIC BubbleSort2.INSTANCE : LBubbleSort2;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 0
+}
